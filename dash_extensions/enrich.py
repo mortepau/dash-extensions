@@ -463,7 +463,7 @@ class ServersideOutputTransform(DashTransform):
 
     def init(self, dt):
         # Set session secret (if not already set).
-        if not dt.server.secret_key:
+        if dt.server and not dt.server.secret_key:
             dt.server.secret_key = secrets.token_urlsafe(16)
 
     # NOTE: Doesn't make sense for clientside callbacks.
